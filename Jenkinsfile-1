@@ -40,7 +40,7 @@ pipeline{
             """
         }
       }
-      stages("docker push"){
+      stage("docker push"){
         steps{
             sh """
             docker push santoshn92/mynotedemo:"${App_Version}"
