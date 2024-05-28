@@ -40,10 +40,11 @@ pipeline{
             """
         }
       }
-      stage("docker push"){
+      stage("docker push & Run"){
         steps{
             sh """
             docker push santoshn92/mynotedemo:"${App_Version}"
+            docker run -d -p 7000:8000 santoshn92/mynotedemo:"${App_Version}"
             """
         }
       }
