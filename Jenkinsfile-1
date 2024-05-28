@@ -34,7 +34,7 @@ pipeline{
         }
       }
       stage("docker login"){
-        stpes{
+        steps{
             sh """
             docker login -u $DOCKERHUB_CREDENTAILS_USR  -Password $DOCKERHUB_CREDENTAILS_PSW
             """
