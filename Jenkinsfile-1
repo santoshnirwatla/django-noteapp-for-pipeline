@@ -1,5 +1,9 @@
 pipeline{
   agent any
+
+  environment{
+    DOCKERHUB_CREDENTIALS=credentials("dockerhub")
+  }
   parameters{
     string(name: "App_Version", description: "give the Version")
   }
@@ -17,6 +21,16 @@ pipeline{
            docker build -t mynotedemo:"${App_Version}" .
             
             """
+        }
+      }
+      stage("tagging image"){
+        steps{
+          sh """
+          echo "tagging docker image"
+          docker tag mynotedemo:"${App_Version}" santoshn92/mynotedemo:"${App_Version}"
+          echo "tagged successfully"
+          """
+
         }
       }
     }
