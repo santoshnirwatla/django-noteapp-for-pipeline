@@ -14,7 +14,7 @@ pipeline{
         steps{
            sh """
            echo "image build"
-           docker build -t santoshn92/django_noteapp:"${App_Version}" .
+           docker build -t mynotedemo:"${App_Version}" .
             
             """
         }
