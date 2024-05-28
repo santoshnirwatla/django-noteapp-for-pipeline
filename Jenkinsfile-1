@@ -1,7 +1,7 @@
 pipeline{
   agent any
   parameters{
-    string(name: "Aapp_Version", description: "give the Version")
+    string(name: "App_Version", description: "give the Version")
   }
     stages{
       stage("checkout code"){
